@@ -7,6 +7,7 @@ group = "com.langfordapps.buildlogic"
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.jetbrains.compose.gradlePlugin)
 }
 
 gradlePlugin {

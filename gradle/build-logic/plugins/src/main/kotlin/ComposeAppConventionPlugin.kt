@@ -1,5 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.langfodapps.plugins.ProjectConfig
+import com.langfodapps.plugins.composePluginLibs
 import com.langfodapps.plugins.debugImplementation
 import com.langfodapps.plugins.findVersionAsString
 import com.langfodapps.plugins.libs
@@ -8,6 +9,8 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.get
+import org.jetbrains.compose.ExperimentalComposeLibrary
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class ComposeAppConventionPlugin : Plugin<Project> {
     override fun apply(project: Project) {
@@ -16,6 +19,43 @@ class ComposeAppConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.compose")
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.multiplatform")
+            }
+
+            extensions.configure<KotlinMultiplatformExtension> {
+                androidTarget {
+                    compilations.all {
+                        kotlinOptions {
+                            jvmTarget = "1.8"
+                        }
+                    }
+                }
+
+                listOf(
+                    iosX64(),
+                    iosArm64(),
+                    iosSimulatorArm64()
+                ).forEach { iosTarget ->
+                    iosTarget.binaries.framework {
+                        baseName = "ComposeApp"
+                        isStatic = true
+                    }
+                }
+
+                with(sourceSets) {
+                    androidMain.dependencies {
+                        implementation(libs.findLibrary("compose.ui").get())
+                        implementation(libs.findLibrary("compose.ui.tooling.preview").get())
+                        implementation(libs.findLibrary("androidx.activity.compose").get())
+                    }
+
+                    commonMain.dependencies {
+                        implementation(composePluginLibs.runtime)
+                        implementation(composePluginLibs.foundation)
+                        implementation(composePluginLibs.material)
+                        @OptIn(ExperimentalComposeLibrary::class)
+                        implementation(composePluginLibs.components.resources)
+                    }
+                }
             }
 
             extensions.configure<ApplicationExtension> {
