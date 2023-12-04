@@ -16,5 +16,9 @@ gradlePlugin {
             id = "langfordapps.compose.application"
             implementationClass = "ComposeAppConventionPlugin"
         }
+        register("composeLibrary") {
+            id = "langfordapps.compose.library"
+            implementationClass = "ComposeLibraryConventionPlugin"
+        }
     }
 }

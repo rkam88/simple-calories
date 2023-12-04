@@ -1,38 +1,30 @@
-import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.LibraryExtension
 import com.langfodapps.plugins.configureAndroid
 import com.langfodapps.plugins.configureKmpAndroidTarget
 import com.langfodapps.plugins.configureKmpCommon
 import com.langfodapps.plugins.configureKmpIosTarget
-import com.langfodapps.plugins.findVersionAsString
-import com.langfodapps.plugins.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
-class ComposeAppConventionPlugin : Plugin<Project> {
+class ComposeLibraryConventionPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         with(project) {
             pluginManager.apply {
                 apply("org.jetbrains.compose")
-                apply("com.android.application")
+                apply("com.android.library")
                 apply("org.jetbrains.kotlin.multiplatform")
             }
 
             extensions.configure<KotlinMultiplatformExtension> {
-                configureKmpAndroidTarget(this) {
-                    implementation(libs.findLibrary("androidx.activity.compose").get())
-                }
+                configureKmpAndroidTarget(this)
                 configureKmpIosTarget(this)
                 configureKmpCommon(this)
             }
 
-            extensions.configure<ApplicationExtension> {
+            extensions.configure<LibraryExtension> {
                 configureAndroid(this)
-
-                defaultConfig {
-                    targetSdk = libs.findVersionAsString("android.targetSdk").toInt()
-                }
             }
         }
     }
