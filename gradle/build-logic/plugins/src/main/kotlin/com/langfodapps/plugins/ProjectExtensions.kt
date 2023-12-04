@@ -1,6 +1,5 @@
 package com.langfodapps.plugins
 
-import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -22,8 +21,4 @@ val Project.composePluginLibs: ComposePlugin.Dependencies
 @Suppress("UnusedReceiverParameter")
 val DependencyHandlerScope.debugImplementation
     get() = "debugImplementation"
-
-object ProjectConfig {
-    val javaVersion: JavaVersion = JavaVersion.VERSION_1_8
-}
 
