@@ -1,3 +1,5 @@
+package com.langfordapps.simplecalories.core.utils
+
 interface Platform {
     val name: String
 }

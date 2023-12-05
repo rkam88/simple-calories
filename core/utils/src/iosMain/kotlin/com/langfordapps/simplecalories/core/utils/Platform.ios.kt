@@ -1,3 +1,5 @@
+package com.langfordapps.simplecalories.core.utils
+
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {

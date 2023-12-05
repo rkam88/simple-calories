@@ -1,3 +1,5 @@
+package com.langfordapps.simplecalories.core.utils
+
 import android.os.Build
 
 class AndroidPlatform : Platform {
