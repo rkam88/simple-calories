@@ -2,6 +2,14 @@ plugins {
     id("langfordapps.compose.application")
 }
 
+kotlin {
+    sourceSets.commonMain {
+        dependencies {
+            implementation(project(":core:utils"))
+        }
+    }
+}
+
 android {
     namespace = "com.langfordapps.simplecalories"
 
@@ -16,4 +24,3 @@ android {
         }
     }
 }
-
