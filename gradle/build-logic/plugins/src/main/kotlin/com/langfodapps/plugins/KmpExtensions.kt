@@ -57,6 +57,7 @@ internal fun Project.configureKmpCommon(
                 implementation(composePluginLibs.material)
                 @OptIn(ExperimentalComposeLibrary::class)
                 implementation(composePluginLibs.components.resources)
+                implementation(libs.findLibrary("kotlinx-datetime").get())
             }
         }
     }
