@@ -1,0 +1,8 @@
+CREATE TABLE portion (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    food_id INTEGER NOT NULL,
+    type TEXT CHECK (type IN ('PerGram', 'Custom')),
+    calories REAL NOT NULL,
+    name TEXT NOT NULL,
+    FOREIGN KEY (food_id) REFERENCES food(id)
+);
