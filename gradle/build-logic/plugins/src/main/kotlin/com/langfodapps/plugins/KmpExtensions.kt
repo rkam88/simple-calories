@@ -22,6 +22,7 @@ internal fun Project.configureKmpAndroidTarget(
             androidMain.dependencies {
                 implementation(libs.findLibrary("compose.ui").get())
                 implementation(libs.findLibrary("compose.ui.tooling.preview").get())
+                implementation(libs.findLibrary("koin-android").get())
 
                 this.additionalDependencies()
             }
@@ -58,6 +59,8 @@ internal fun Project.configureKmpCommon(
                 @OptIn(ExperimentalComposeLibrary::class)
                 implementation(composePluginLibs.components.resources)
                 implementation(libs.findLibrary("kotlinx-datetime").get())
+                implementation(libs.findLibrary("koin-core").get())
+                implementation(libs.findLibrary("koin-compose").get())
             }
         }
     }
