@@ -61,6 +61,11 @@ internal fun Project.configureKmpCommon(
                 implementation(libs.findLibrary("kotlinx-datetime").get())
                 implementation(libs.findLibrary("koin-core").get())
                 implementation(libs.findLibrary("koin-compose").get())
+                implementation(libs.findLibrary("voyager-navigator").get())
+                implementation(libs.findLibrary("voyager-screenmodel").get())
+                implementation(libs.findLibrary("voyager-tabnavigator").get())
+                implementation(libs.findLibrary("voyager-transitions").get())
+                implementation(libs.findLibrary("voyager-koin").get())
             }
         }
     }
