@@ -20,6 +20,7 @@ koin = "3.5.3"
 koin-compose = "1.1.2"
 sqldelight = "2.0.1"
 voyager = "1.0.0"
+stately = "2.0.6"
 
 [libraries]
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -51,6 +52,7 @@ voyager-screenmodel = { group = "cafe.adriel.voyager", name = "voyager-screenmod
 voyager-tabnavigator = { group = "cafe.adriel.voyager", name = "voyager-tab-navigator", version.ref = "voyager" }
 voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitions", version.ref = "voyager" }
 voyager-koin = { group = "cafe.adriel.voyager", name = "voyager-koin", version.ref = "voyager" }
+stately-common = { group = "co.touchlab", name = "stately-common", version.ref = "stately" }
 
 [plugins]
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }

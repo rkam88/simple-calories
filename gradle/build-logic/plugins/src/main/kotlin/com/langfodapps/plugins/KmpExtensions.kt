@@ -66,6 +66,7 @@ internal fun Project.configureKmpCommon(
                 implementation(libs.findLibrary("voyager-tabnavigator").get())
                 implementation(libs.findLibrary("voyager-transitions").get())
                 implementation(libs.findLibrary("voyager-koin").get())
+                implementation(libs.findLibrary("stately-common").get())
             }
         }
     }
