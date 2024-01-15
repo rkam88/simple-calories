@@ -9,6 +9,7 @@ kotlin {
             implementation(project(":core:food"))
             implementation(project(":core:navigation"))
             implementation(project(":feature:home"))
+            implementation(project(":feature:counter"))
         }
     }
 }

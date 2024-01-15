@@ -15,6 +15,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.langfordapps.simplecalories.core.food.api.FoodRepository
+import com.langfordapps.simplecalories.core.navigation.api.NavDestination
+import com.langfordapps.simplecalories.core.navigation.api.Router
 import com.langfordapps.simplecalories.core.utils.getPlatform
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
@@ -43,6 +45,11 @@ internal fun HomeScreen() {
             }
             foodRepository.getFoodList().forEach {
                 Text(text = it.name)
+            }
+
+            val router = koinInject<Router>()
+            Button(onClick = { router.push(NavDestination.Counter) }) {
+                Text("Open counter")
             }
         }
     }
