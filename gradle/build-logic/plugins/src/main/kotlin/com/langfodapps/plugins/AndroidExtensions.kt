@@ -36,6 +36,7 @@ internal fun Project.configureAndroid(
         }
         dependencies {
             add(debugImplementation, libs.findLibrary("compose.ui.tooling").get())
+            add(testImplementation, libs.findLibrary("mockk").get())
         }
         testOptions.unitTests.isReturnDefaultValues = true
     }

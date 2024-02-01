@@ -22,3 +22,6 @@ val Project.composePluginLibs: ComposePlugin.Dependencies
 val DependencyHandlerScope.debugImplementation
     get() = "debugImplementation"
 
+@Suppress("UnusedReceiverParameter")
+val DependencyHandlerScope.testImplementation
+    get() = "testImplementation"
