@@ -6,11 +6,13 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.langfordapps.simplecalories.core.molecule.api.MoleculeScreenModel
+import com.langfordapps.simplecalories.core.molecule.internal.MoleculeConfigProvider
 import com.langfordapps.simplecalories.core.navigation.api.Router
 
 internal class CounterScreenModel(
     private val router: Router,
-) : MoleculeScreenModel<CounterState>() {
+    moleculeConfigProvider: MoleculeConfigProvider,
+) : MoleculeScreenModel<CounterState>(moleculeConfigProvider) {
 
     @Composable
     override fun viewModelState(): CounterState {

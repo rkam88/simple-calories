@@ -8,14 +8,16 @@ import com.langfordapps.simplecalories.core.molecule.internal.MoleculeConfigProv
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.StateFlow
 
-abstract class MoleculeScreenModel<State> : ScreenModel {
+abstract class MoleculeScreenModel<State>(
+    moleculeConfigProvider: MoleculeConfigProvider,
+) : ScreenModel {
 
     private val moleculeScope = CoroutineScope(
-        screenModelScope.coroutineContext + MoleculeConfigProvider.coroutineContext
+        screenModelScope.coroutineContext + moleculeConfigProvider.coroutineContext
     )
 
     val state: StateFlow<State> = moleculeScope
-        .launchMolecule(mode = MoleculeConfigProvider.recompositionMode) { viewModelState() }
+        .launchMolecule(mode = moleculeConfigProvider.recompositionMode) { viewModelState() }
 
     @Composable
     protected abstract fun viewModelState(): State

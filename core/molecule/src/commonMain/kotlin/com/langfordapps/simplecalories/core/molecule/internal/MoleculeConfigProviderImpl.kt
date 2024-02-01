@@ -3,9 +3,9 @@ package com.langfordapps.simplecalories.core.molecule.internal
 import app.cash.molecule.RecompositionMode
 import kotlin.coroutines.CoroutineContext
 
-internal interface MoleculeConfigProviderContract {
+interface MoleculeConfigProvider {
     val recompositionMode: RecompositionMode
     val coroutineContext: CoroutineContext
 }
 
-internal expect object MoleculeConfigProvider : MoleculeConfigProviderContract
+internal expect object MoleculeConfigProviderImpl : MoleculeConfigProvider

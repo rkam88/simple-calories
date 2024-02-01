@@ -8,6 +8,7 @@ kotlin {
             implementation(project(":core:utils"))
             implementation(project(":core:food"))
             implementation(project(":core:navigation"))
+            implementation(project(":core:molecule"))
             implementation(project(":feature:home"))
             implementation(project(":feature:counter"))
         }

@@ -7,6 +7,7 @@ val counterModule = module {
     factory {
         CounterScreenModel(
             router = get(),
+            moleculeConfigProvider = get(),
         )
     }
 }
