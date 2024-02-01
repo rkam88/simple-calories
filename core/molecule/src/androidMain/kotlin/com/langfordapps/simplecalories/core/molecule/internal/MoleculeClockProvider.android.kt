@@ -6,5 +6,5 @@ import kotlin.coroutines.CoroutineContext
 
 internal actual object MoleculeConfigProvider : MoleculeConfigProviderContract {
     override val recompositionMode: RecompositionMode = RecompositionMode.ContextClock
-    override val dispatcher: CoroutineContext = AndroidUiDispatcher.Main
+    override val coroutineContext: CoroutineContext = AndroidUiDispatcher.Main
 }

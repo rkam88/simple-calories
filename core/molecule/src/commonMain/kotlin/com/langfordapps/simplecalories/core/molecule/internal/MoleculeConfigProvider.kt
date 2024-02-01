@@ -5,7 +5,7 @@ import kotlin.coroutines.CoroutineContext
 
 internal interface MoleculeConfigProviderContract {
     val recompositionMode: RecompositionMode
-    val dispatcher: CoroutineContext
+    val coroutineContext: CoroutineContext
 }
 
 internal expect object MoleculeConfigProvider : MoleculeConfigProviderContract

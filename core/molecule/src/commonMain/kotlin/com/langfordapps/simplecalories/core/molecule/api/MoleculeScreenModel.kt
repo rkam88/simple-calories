@@ -10,14 +10,12 @@ import kotlinx.coroutines.flow.StateFlow
 
 abstract class MoleculeScreenModel<State> : ScreenModel {
 
-    val state: StateFlow<State> by lazy(LazyThreadSafetyMode.NONE) {
-        val scope = CoroutineScope(
-            screenModelScope.coroutineContext + MoleculeConfigProvider.dispatcher
-        )
-        scope.launchMolecule(mode = MoleculeConfigProvider.recompositionMode) {
-            viewModelState()
-        }
-    }
+    private val moleculeScope = CoroutineScope(
+        screenModelScope.coroutineContext + MoleculeConfigProvider.coroutineContext
+    )
+
+    val state: StateFlow<State> = moleculeScope
+        .launchMolecule(mode = MoleculeConfigProvider.recompositionMode) { viewModelState() }
 
     @Composable
     protected abstract fun viewModelState(): State
