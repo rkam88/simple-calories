@@ -37,5 +37,6 @@ internal fun Project.configureAndroid(
         dependencies {
             add(debugImplementation, libs.findLibrary("compose.ui.tooling").get())
         }
+        testOptions.unitTests.isReturnDefaultValues = true
     }
 }

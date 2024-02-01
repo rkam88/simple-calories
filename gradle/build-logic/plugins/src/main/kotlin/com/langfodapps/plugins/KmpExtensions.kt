@@ -68,6 +68,11 @@ internal fun Project.configureKmpCommon(
                 implementation(libs.findLibrary("voyager-koin").get())
                 implementation(libs.findLibrary("stately-common").get())
             }
+            commonTest.dependencies {
+                implementation(libs.findLibrary("kotlin-test").get())
+                implementation(libs.findLibrary("kotlinx-coroutines-test").get())
+                implementation(project(":core:shared_test"))
+            }
         }
     }
 }
